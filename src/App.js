@@ -14,6 +14,7 @@ export default function App() {
   const [emailR, setEmailR] = useState();
   const [passwordR, setPasswordR] = useState();
   const [repeatPasswordR, setRepeatPasswordR] = useState();
+  const [username, setUsername] = useState();
   const [bearer, setBearer] = useState();
   return (
     <UserContext.Provider
@@ -34,6 +35,8 @@ export default function App() {
         setRepeatPasswordR,
         bearer,
         setBearer,
+        username,
+        setUsername,
       }}
     >
       <BrowserRouter>

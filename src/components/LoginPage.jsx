@@ -15,6 +15,7 @@ export default function LoginPage() {
     passwordLogin,
     setPasswordLogin,
     setBearer,
+    setUsername,
   } = useContext(UserContext);
   const URL = "http://localhost:5000/sign-in";
   const navigate = useNavigate();
@@ -23,11 +24,12 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      const token = await axios.post(URL, {
+      const response = await axios.post(URL, {
         email: emailLogin,
         password: passwordLogin,
       });
-      setBearer(token.data);
+      setBearer(response.data.token);
+      setUsername(response.data.username);
       setLoading(false);
       navigate("/");
     } catch (e) {
