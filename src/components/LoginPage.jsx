@@ -28,10 +28,10 @@ export default function LoginPage() {
         email: emailLogin,
         password: passwordLogin,
       });
-      setBearer(response.data.token);
-      setUsername(response.data.username);
-      setLoading(false);
-      navigate("/");
+      await setBearer(response.data.token);
+      await setUsername(response.data.username);
+      await setLoading(false);
+      navigate("/transactions");
     } catch (e) {
       console.log(e);
       setLoading(false);

@@ -92,7 +92,7 @@ export default function LoginPage() {
                 <ThreeDots color="white" height="45px" width="50px" />
               </Spinner>
             ) : (
-              "Entrar"
+              "Cadastrar"
             )}
           </Button>
         </Form>

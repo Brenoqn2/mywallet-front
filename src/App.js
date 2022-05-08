@@ -5,6 +5,7 @@ import { UserContext } from "./contexts/UserContext";
 import "./reset.css";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
+import TransactionsPage from "./components/TransactionsPage";
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -16,6 +17,7 @@ export default function App() {
   const [repeatPasswordR, setRepeatPasswordR] = useState();
   const [username, setUsername] = useState();
   const [bearer, setBearer] = useState();
+  const [transactions, setTransactions] = useState();
   return (
     <UserContext.Provider
       value={{
@@ -37,12 +39,15 @@ export default function App() {
         setBearer,
         username,
         setUsername,
+        transactions,
+        setTransactions,
       }}
     >
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/sign-up" element={<RegisterPage />} />
+          <Route path="/transactions" element={<TransactionsPage />} />
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
