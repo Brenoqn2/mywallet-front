@@ -51,6 +51,7 @@ export default function NewTransaction() {
     } catch (e) {
       console.log(e);
       setLoading(false);
+      navigate("/transactions");
     }
   }
   return (
