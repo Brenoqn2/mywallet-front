@@ -23,11 +23,8 @@ export default function NewTransaction() {
     const month = String(dayjs().month()).padStart(2, "0");
     const date = `${day}/${month}`;
 
-    let amountFormatted = String(amount)?.replace(".", ",");
-    if (!amountFormatted.includes(",")) amountFormatted += ",00";
-    let arr = amountFormatted.split(",");
-    if (arr[1].length === 1) arr[1] += "0";
-    amountFormatted = arr.join(",");
+    let amountFormatted = parseFloat(amount).toFixed(2);
+    amountFormatted = amountFormatted.replace(".", ",");
 
     const isIncome = newTransaction === "income" ? true : false;
 

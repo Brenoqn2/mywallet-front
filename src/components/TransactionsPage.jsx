@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
 import axios from "axios";
 import React from "react";
+import Transactions from "./Transactions";
 
 export default function TransactionsPage() {
   const {
@@ -46,8 +47,14 @@ export default function TransactionsPage() {
         <Welcome>{`Olá, ${username}`}</Welcome>
         <ion-icon name="exit-outline"></ion-icon>
       </Div>
-      <TransactionsBackground>
-        {transactions.map((transaction) => {})}
+      <TransactionsBackground
+        justify={transactions.length === 0 ? "center" : ""}
+      >
+        {transactions.length === 0 ? (
+          <Warning>Não há registros de entrada ou saída</Warning>
+        ) : (
+          <Transactions></Transactions>
+        )}
       </TransactionsBackground>
       <ButtonsWrapper>
         <Button onClick={() => newTransaction("income")}>
@@ -99,6 +106,11 @@ const TransactionsBackground = styled.div`
   height: 70vh;
   width: 90%;
   margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: ${(props) => props.justify};
+  overflow: auto;
 `;
 
 const ButtonsWrapper = styled.div`
@@ -146,4 +158,17 @@ const Button = styled.div`
     top: 10px;
     color: white;
   }
+`;
+
+const Warning = styled.div`
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  width: 180px;
+  height: 46px;
+  margin: 0 auto;
+  color: #868686;
 `;
