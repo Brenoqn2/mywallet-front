@@ -20,7 +20,7 @@ export default function NewTransaction() {
     e.preventDefault();
     setLoading(true);
     const day = String(dayjs().date()).padStart(2, "0");
-    const month = String(dayjs().month()).padStart(2, "0");
+    const month = String(dayjs().month() + 1).padStart(2, "0");
     const date = `${day}/${month}`;
 
     let amountFormatted = parseFloat(amount).toFixed(2);
