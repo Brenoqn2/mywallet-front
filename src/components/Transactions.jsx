@@ -50,7 +50,6 @@ const TransactionsContainer = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   overflow: auto;
   height: calc(100% - 50px);
 `;

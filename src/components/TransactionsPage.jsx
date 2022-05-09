@@ -51,6 +51,7 @@ export default function TransactionsPage() {
     };
     try {
       await axios.delete(URL, config);
+      setTransactions([]);
       navigate("/");
     } catch (e) {
       console.log(e);
