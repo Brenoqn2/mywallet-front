@@ -17,7 +17,7 @@ export default function LoginPage() {
     setBearer,
     setUsername,
   } = useContext(UserContext);
-  const URL = "http://localhost:5000/sign-in";
+  const URL = "https://back-my-wallet-brenoqn2.herokuapp.com/sign-in";
   const navigate = useNavigate();
 
   async function login(e) {

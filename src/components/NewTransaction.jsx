@@ -42,7 +42,7 @@ export default function NewTransaction() {
       },
     };
 
-    const URL = `http://localhost:5000/transactions`;
+    const URL = `https://back-my-wallet-brenoqn2.herokuapp.com/transactions`;
 
     try {
       await axios.post(URL, data, config);

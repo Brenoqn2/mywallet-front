@@ -25,7 +25,7 @@ export default function TransactionsPage() {
         user: emailLogin,
       },
     };
-    const URL = `http://localhost:5000/transactions`;
+    const URL = `https://back-my-wallet-brenoqn2.herokuapp.com/transactions`;
     const promise = axios.get(URL, config);
     promise.then((response) => {
       setTransactions(response.data);
@@ -42,7 +42,7 @@ export default function TransactionsPage() {
   }
 
   async function logOut() {
-    const URL = `http://localhost:5000/log-out`;
+    const URL = `https://back-my-wallet-brenoqn2.herokuapp.com/log-out`;
     const config = {
       headers: {
         authorization: `Bearer ${bearer}`,
