@@ -142,6 +142,14 @@ export const Input = styled.input`
 
     color: #6b6b6b;
   }
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
 `;
 
 export const Button = styled.button`

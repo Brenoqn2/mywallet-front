@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
@@ -10,10 +10,12 @@ export default function TransactionsPage() {
     username,
     bearer,
     emailLogin,
-    loading,
     transactions,
     setTransactions,
+    setNewTransaction,
   } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const config = {
@@ -29,8 +31,14 @@ export default function TransactionsPage() {
     });
     promise.catch((e) => {
       console.log(e);
+      navigate("/");
     });
-  }, [bearer, emailLogin, loading]);
+  }, [bearer, emailLogin, setTransactions, navigate]);
+
+  function newTransaction(newTransaction) {
+    setNewTransaction(newTransaction);
+    navigate("/new-transaction");
+  }
 
   return (
     <Main>
@@ -42,11 +50,11 @@ export default function TransactionsPage() {
         {transactions.map((transaction) => {})}
       </TransactionsBackground>
       <ButtonsWrapper>
-        <Button>
+        <Button onClick={() => newTransaction("income")}>
           <ion-icon name="add-circle-outline"></ion-icon>
           <p>Nova entrada</p>
         </Button>
-        <Button>
+        <Button onClick={() => newTransaction("expense")}>
           <ion-icon name="remove-circle-outline"></ion-icon>
           <p>Nova saída</p>
         </Button>
