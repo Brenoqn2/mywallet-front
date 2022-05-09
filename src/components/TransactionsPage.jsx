@@ -41,11 +41,27 @@ export default function TransactionsPage() {
     navigate("/new-transaction");
   }
 
+  async function logOut() {
+    const URL = `http://localhost:5000/log-out`;
+    const config = {
+      headers: {
+        authorization: `Bearer ${bearer}`,
+        user: emailLogin,
+      },
+    };
+    try {
+      await axios.delete(URL, config);
+      navigate("/");
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   return (
     <Main>
       <Div>
         <Welcome>{`Olá, ${username}`}</Welcome>
-        <ion-icon name="exit-outline"></ion-icon>
+        <ion-icon name="exit-outline" onClick={logOut}></ion-icon>
       </Div>
       <TransactionsBackground
         justify={transactions.length === 0 ? "center" : ""}
